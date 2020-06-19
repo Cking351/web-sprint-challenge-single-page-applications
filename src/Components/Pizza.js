@@ -18,7 +18,7 @@ export default function Pizza (props) {
         <form className='container' onSubmit={onSubmit}>
           <div>
             <h2>Add Your Pizza</h2>
-            <button disabled={disabled}>Submit</button>
+            <button id='myBtn' disabled={disabled}>Submit</button>
           </div>
               <div className="inputs">
                 <label>Name&nbsp;
