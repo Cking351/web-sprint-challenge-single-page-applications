@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-// import Header from './Components/Header'
+import './App.css'
 import Pizza from './Components/Pizza'
 import Home from './Components/Home'
-import { Switch, Route } from 'react-router-dom'
+import Create from './Components/Create'
+import { Switch, Route, Link } from 'react-router-dom'
 import * as yup from 'yup';
 import axios from 'axios';
 import formSchema from './Components/formSchema'
@@ -12,24 +13,23 @@ const App = () => {
 
 
   const initialFormValues = {
+    // Name text //
+    name: '',
     // Drop down menu //
     size: '',
     // Checklist //
     toppings: {
       pepperoni: false,
-      onions: false,
+      onion: false,
       peppers: false,
       extraCheese: false,
     },
-    // Name text //
-    name: '',
-    instructions: ''
+    instructions: '',
   }
 
   const initialFormErrors = {
     name: '',
-    size: '',
-    instructions: ''
+    size: ''
   }
   const initialPizza = []
   const initialDisabled = true
@@ -113,12 +113,22 @@ const App = () => {
     })
   }, [formValues])
 
+  const linkStyle = {
+    color: 'black',
+  }
+
   return (
     <div>
-      {/* <Header /> */}
-
+      <header className="App-header">
+        <h1>Lambda Eats</h1>
+        <nav className='nav-links'>
+          <Link style={linkStyle} to="/">Home</Link>
+          <br></br>
+          <Link style={linkStyle} className='navlink' to="/pizza">Order Form</Link>
+        </nav>
+      </header>
       <Switch>
-        <Route path='/pizza'>
+        <Route path="/pizza">
         <Pizza
             values={formValues}
             onInputChange={onInputChange}
@@ -127,9 +137,16 @@ const App = () => {
             disabled={disabled}
             errors={formErrors}
           />
+          {
+          pizza.map(item => {
+            return (
+              <Create key={item.id} details={item} />
+            )
+          })
+        }
         </Route>
           <Route path="/">
-            <Home greeting='Interested in Pizza?'/>
+            <Home greeting='Hungry?'/>
           </Route>
       </Switch>
     </div>

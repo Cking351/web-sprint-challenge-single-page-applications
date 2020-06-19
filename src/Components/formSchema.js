@@ -8,7 +8,9 @@ const formSchema = Yup.object().shape({
     .required("Required"),
     size: Yup
     .string()
-    .oneOf(["Small", "medium", "Large"], "Please select a size"),
+    .oneOf(["Small", "Medium", "Large"], "Please select a size"),
+    instructions: Yup
+    .string()
 });
 
 export default formSchema;

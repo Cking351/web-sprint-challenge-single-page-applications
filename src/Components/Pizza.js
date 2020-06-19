@@ -24,6 +24,7 @@ export default function Pizza (props) {
                 <label>Name&nbsp;
                     <input
                         onChange={onInputChange}
+                        value={values.name}
                         name="name"
                         type="text"
                     />
@@ -31,6 +32,7 @@ export default function Pizza (props) {
                 <label>Special Instructions&nbsp;
                     <input
                         onChange={onInputChange}
+                        value={values.instructions}
                         name="instructions"
                         type="text"
                     />
@@ -49,7 +51,6 @@ export default function Pizza (props) {
                         <option value="Small">Small</option>
                         <option value="Medium">Medium</option>
                         <option value="Large">Large</option>
-                        <option value="Extra Large">Extra Large</option>
                     </select>
                 </label>
                 <h4>Choice of Toppings</h4>
@@ -62,7 +63,7 @@ export default function Pizza (props) {
                   />
                   
                   </label>
-                  <label>Onion&nbsp;
+                  <label>&nbsp;Onion&nbsp;
                   <input 
                   name='onion'
                   type='checkbox'
@@ -71,7 +72,7 @@ export default function Pizza (props) {
                   />
                   
                   </label>
-                  <label>Peppers&nbsp;
+                  <label>&nbsp;Peppers&nbsp;
                   <input 
                   name='peppers'
                   type='checkbox'
@@ -80,7 +81,7 @@ export default function Pizza (props) {
                   />
                   
                   </label>
-                  <label>Extra Cheese&nbsp;
+                  <label>&nbsp;Extra Cheese&nbsp;
                   <input 
                   name='extraCheese'
                   type='checkbox'

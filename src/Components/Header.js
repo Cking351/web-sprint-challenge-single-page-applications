@@ -1,18 +1,16 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React from "react";
 
-export default function Header () {
-    return (
-        <header className='header'>
-            <div>
-                <h1>Lambda Eats</h1>
-            </div>
-            <div>
-                <nav>
-                    <Link to "/" classname='myBtn'>Home</Link>
-                    <Link to="/pizza" className='myBtn order'>Order Here</Link>
-                </nav>
-            </div>
-        </header>
+function Home () {
+    
+
+    return(
+        <div className="home">
+            <img 
+                src="../../Assets/Pizza.jpg" 
+                alt="pizza"
+            />
+        </div>
     )
 }
+
+export default Home;
